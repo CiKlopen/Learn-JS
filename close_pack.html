@@ -1,0 +1,40 @@
+<!-- javascript 的闭包学习-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>add application</p>
+    <p id="add_num"></p>
+    <button onclick=add()>add</button>
+    <button onclick=add(1)>zero clearing</button>
+    
+    
+    
+    <script>
+        function add(aa){
+            let a = close_pack_f(aa);
+            document.getElementById("add_num").innerText = a;
+        }
+        
+        
+        
+        var close_pack_f = (function(){
+            let a=0;// close_pack_f的私有变量?
+            return function(aa){
+                if(aa){
+                    a = 0;
+                    return a;
+                }else{
+                    return a+=1;
+                }
+                }
+})()
+    </script>
+</body>
+</html>
